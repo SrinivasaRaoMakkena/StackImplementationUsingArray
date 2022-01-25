@@ -39,4 +39,14 @@ class ValidParenthesisTest() {
             parenthesis.isValidParenthesis("{}()[]()")
         )
     }
+
+    @Test
+    fun `when string contains unexpected chars in input then return false`() {
+        Assert.assertFalse(
+            parenthesis.isValidParenthesis("aa")
+        )
+        Assert.assertFalse(
+            parenthesis.isValidParenthesis("\\")
+        )
+    }
 }
