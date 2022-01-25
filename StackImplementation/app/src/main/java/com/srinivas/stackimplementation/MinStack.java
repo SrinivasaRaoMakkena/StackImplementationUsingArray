@@ -1,12 +1,17 @@
 package com.srinivas.stackimplementation;
 
 public class MinStack {
-    int maxSize = 30000;
-    int stack[] = new int[maxSize];
+    int maxSize;
+    int stack[];
     int currentIndex = -1;
 
-    private void push(int value) {
-        if (currentIndex == maxSize) {
+    public MinStack(int maxSize) {
+        this.maxSize = maxSize;
+        this.stack = new int[maxSize];
+    }
+
+    void push(Integer value) {
+        if (currentIndex >= maxSize-1) {
             return;
         } else {
             currentIndex += 1;
@@ -14,7 +19,7 @@ public class MinStack {
         }
     }
 
-    private void pop() {
+    void pop() {
         if (currentIndex < 0) {
             return;
         } else {
@@ -22,7 +27,7 @@ public class MinStack {
         }
     }
 
-    private Integer top() {
+    Integer top() {
         if (currentIndex < 0) {
             return null;
         } else {
@@ -30,7 +35,7 @@ public class MinStack {
         }
     }
 
-    private int getMin() {
+    int getMin() {
         int minValue = Integer.MAX_VALUE;
         for (int i = 0; i <= currentIndex; i++) {
             if (stack[i] < minValue) {
@@ -49,7 +54,7 @@ public class MinStack {
         for (int i = 0; i < operations.length; i++) {
             switch (operations[i]) {
                 case "MinStack":
-                    if (minStack == null) minStack = new MinStack();
+                    if (minStack == null) minStack = new MinStack(maxSize);
                     output[i] = null;
                     break;
                 case "push":

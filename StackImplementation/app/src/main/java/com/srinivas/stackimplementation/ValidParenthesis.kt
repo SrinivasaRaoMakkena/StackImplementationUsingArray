@@ -4,7 +4,8 @@ class ValidParenthesis {
 
     private val stack: CharacterStack = CharacterStack()
     fun isValidParenthesis(value: String): Boolean {
-        if (value.length % 2 == 1) {
+        val regex = Regex("[(){}\\[\\]]+")
+        if (value.length % 2 == 1 || !value.matches(regex)) {
             return false
         }
         for (index in value.indices) {

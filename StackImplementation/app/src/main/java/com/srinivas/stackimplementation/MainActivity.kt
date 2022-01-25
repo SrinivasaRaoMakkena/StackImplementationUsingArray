@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         /**
          * Code Task 1
          */
-        val minStack = MinStack()
+        val minStack = MinStack(10)
         val input1 =
             arrayOf<String>("MinStack", "push", "push", "push", "getMin", "pop", "top", "getMin");
         val a1: Array<Int> = arrayOf()
