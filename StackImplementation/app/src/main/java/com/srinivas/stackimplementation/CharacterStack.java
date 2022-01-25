@@ -1,42 +1,41 @@
-package com.srinivas.stackimplementation;
+package com.srinivas.stackimplementation
 
-public class CharacterStack {
-    static int maxSize;
-    char stack[] = new char[maxSize];
-    int currentIndex = -1;
+import kotlin.math.pow
 
-    static {
-        maxSize = (int) Math.pow(10, 4) / 2;
+class CharacterStack {
+    var stack = CharArray(maxSize)
+    var currentIndex = -1
+
+    companion object {
+        var maxSize = 0
+
+        init {
+            maxSize = 10.0.pow(4.0).toInt() / 2
+        }
     }
 
-    void push(char value) {
+    fun push(value: Char) {
         if (currentIndex == maxSize) {
-            return;
+            return
         } else {
-            currentIndex += 1;
-            stack[currentIndex] = value;
+            currentIndex += 1
+            stack[currentIndex] = value
         }
     }
 
-    void pop() {
-        if (currentIndex < 0) {
-            return;
+    fun pop() {
+        currentIndex -= if (currentIndex < 0) {
+            return
         } else {
-            currentIndex -= 1;
+            1
         }
     }
 
-    Character top() {
-        if (currentIndex < 0) {
-            return null;
+    fun top(): Char? {
+        return if (currentIndex < 0) {
+            null
         } else {
-            return stack[currentIndex];
+            stack[currentIndex]
         }
-    }
-
-
-
-    public static void main(String [] args){
-
     }
 }
